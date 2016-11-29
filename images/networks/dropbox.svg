@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid meet" viewBox="0 0 125.90588 117.1065">
+ <g fill="#fff" transform="matrix(1.25,0,0,-1.25,-58.10775,163.7235)">
+  <g transform="translate(76.1162,130.9785)">
+   <path d="M 0,0 -29.63,-19.346 -9.143,-35.752 20.732,-17.305 0,0 Z" />
+  </g>
+  <g transform="translate(46.4863,78.8198)">
+   <path d="M 0,0 29.63,-19.346 50.362,-2.04 20.487,16.407 0,0 Z" />
+  </g>
+  <g transform="translate(96.8486,76.7798)">
+   <path d="M 0,0 20.733,-17.306 50.362,2.04 29.875,18.447 0,0 Z" />
+  </g>
+  <g transform="translate(147.2109,111.6328)">
+   <path d="M 0,0 -29.629,19.346 -50.362,2.041 -20.487,-16.406 0,0 Z" />
+  </g>
+  <g transform="translate(96.9092,73.0566)">
+   <path d="m 0,0 -20.793,-17.254 -8.897,5.809 0,-6.513 29.69,-17.805 29.691,17.805 0,6.513 -8.896,-5.809 L 0,0 Z" />
+  </g>
+ </g>
+</svg>
