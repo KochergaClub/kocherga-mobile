@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += qml quick widgets svg websockets network quickcontrols2
+QT += qml quick widgets svg websockets network quickcontrols2 multimedia
 
 SOURCES += main.cpp
 
