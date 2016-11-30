@@ -20,7 +20,7 @@ View {
         source: camera
         anchors.horizontalCenter: parent.horizontalCenter
         y: pt(100)
-        width: pt(900)
+        width: Math.min(pt(1200), parent.width)
         height: width
         fillMode: VideoOutput.PreserveAspectCrop
     }
