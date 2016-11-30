@@ -5,6 +5,11 @@ Item {
     Column {
         spacing: 0
         anchors.fill: parent
+        Rectangle {
+            height: header.topPadding
+            width: parent.width
+            color: '#000'
+        }
         LeftMenuItem {
             text: api.loggedIn ? api.username : 'Войти'
             onClicked: switchTo(coins)
