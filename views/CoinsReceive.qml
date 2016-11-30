@@ -19,9 +19,8 @@ View {
         id: video
         source: camera
         anchors.horizontalCenter: parent.horizontalCenter
-        y: pt(100)
-        width: Math.min(pt(1200), parent.width)
-        height: width
+        width: parent.width
+        height: parent.height - pt(560)
         fillMode: VideoOutput.PreserveAspectCrop
         autoOrientation: true
     }
@@ -32,7 +31,7 @@ View {
     }
     Text {
         anchors.top: video.bottom
-        anchors.topMargin: pt(200)
+        anchors.topMargin: pt(100)
         anchors.horizontalCenter: parent.horizontalCenter
         text: view.value + ' юдк.'
         font.pixelSize: pt(100)
@@ -43,7 +42,7 @@ View {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         anchors.bottomMargin: pt(100)
-        implicitHeight: pt(140)
+        height: pt(140)
         Button {
             id: abortButton
             text: 'Отмена'
