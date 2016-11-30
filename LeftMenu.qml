@@ -23,6 +23,7 @@ Item {
         }
     }
     MouseArea {
+        visible: api.loggedIn
         anchors.bottom: parent.bottom
         height: pt(160)
         width: parent.width
