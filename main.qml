@@ -10,6 +10,7 @@ ApplicationWindow {
     height: 500
     color: '#000'
 
+    property string platform: typeof AppPlatform !== 'undefined' ? AppPlatform : ''
     property int baseWidth: 1080
     property int baseHeight: 1920
     property real px: Math.min(width, height * baseWidth / baseHeight) / baseWidth
