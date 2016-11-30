@@ -23,6 +23,7 @@ View {
         width: Math.min(pt(1200), parent.width)
         height: width
         fillMode: VideoOutput.PreserveAspectCrop
+        autoOrientation: true
     }
     MouseArea {
         // mockup
