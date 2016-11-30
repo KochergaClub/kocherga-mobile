@@ -73,7 +73,7 @@ View {
             anchors.fill: code
             onClicked: {
                 api.coins -= result.value;
-                view.visible = false;
+                stack.pop();
             }
         }
         Text {
