@@ -9,13 +9,13 @@ MouseArea {
     Column {
         id: button
         anchors.centerIn: parent
-        width: pt(100)
+        width: pt(80)
         spacing: pt(20)
         Repeater {
             model: 3
             Rectangle {
                 width: button.width
-                height: pt(12)
+                height: pt(9)
                 color: '#fff'
             }
         }
