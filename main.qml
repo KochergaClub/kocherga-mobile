@@ -9,6 +9,8 @@ ApplicationWindow {
     width: 300
     height: 500
     color: '#000'
+    visible: true
+    flags: Qt.Window | Qt.MaximizeUsingFullscreenGeometryHint
 
     property string platform: typeof AppPlatform !== 'undefined' ? AppPlatform : ''
     property int baseWidth: 1080
