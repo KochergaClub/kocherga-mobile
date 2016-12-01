@@ -69,7 +69,7 @@ View {
             text: 'Принять'
             onClicked: {
                 // mockup
-                api.coins += view.value;
+                api.coinsAdd(view.value);
                 stack.pop();
             }
             width: view.width * 0.4

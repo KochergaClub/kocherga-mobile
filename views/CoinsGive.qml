@@ -40,11 +40,11 @@ View {
             anchors.right: parent.right
             text: 'Создать'
             onClicked: {
-                api.requestCode({
+                api.codeCreate({
                     type: 'coins',
                     value: spinbox.realValue,
                 }, function(res) {
-                    code.value = res.code;
+                    qrcode.value = res.code;
                     result.value = res.value;
                     result.visible = true;
                 });
@@ -61,23 +61,29 @@ View {
         height: pt(1400)
         width: parent.width
         QrCode {
-            id: code
+            id: qrcode
             type: 3
             level: 2
             height: pt(900)
             anchors.centerIn: parent
             width: height
         }
-        MouseArea {
-            // mockup
-            anchors.fill: code
-            onClicked: {
-                api.coins -= result.value;
-                stack.pop();
+        Connections {
+            target: api
+            onCodeDestroyed: {
+                if (code === qrcode.value) {
+                    stack.pop();
+                }
             }
         }
+
+        MouseArea {
+            // mockup
+            anchors.fill: qrcode
+            onClicked: api.codeConsume(qrcode.value)
+        }
         Text {
-            anchors.top: code.bottom
+            anchors.top: qrcode.bottom
             anchors.topMargin: pt(100)
             anchors.horizontalCenter: parent.horizontalCenter
             text: result.value + ' юдк.'
@@ -86,11 +92,7 @@ View {
     }
     Button {
         text: 'Отмена'
-        onClicked: {
-            api.destroyCode(code.value, function() {
-                stack.pop();
-            })
-        }
+        onClicked: api.codeDestroy(qrcode.value)
         width: view.width * 0.4
         height: pt(140)
         anchors.horizontalCenter: parent.horizontalCenter

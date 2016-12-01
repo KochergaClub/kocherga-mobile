@@ -7,6 +7,26 @@ QtObject {
     property real coins: 101.1
     property int people: -1
 
+    function coinsAdd(value) {
+        coins = Math.round((coins + value) * 1e9) / 1e9;
+    }
+
+    signal codeDestroyed(string code)
+
+    function codeConsume(code) {
+        codeInfo(code, function(info) {
+            if (info.type === 'coins') {
+                coinsAdd(-info.value);
+            }
+            codeDestroyed(code);
+        });
+    }
+
+    function codeDestroy(code) {
+        if (!code) return;
+        codeDestroyed(code);
+    }
+
     function codeInfo(code, callback) {
         var parts = code.split(':');
         if (parts.length !== 3) return;
@@ -17,16 +37,14 @@ QtObject {
         callback({ type: parts[1], value: parts[2] });
     }
 
-    function requestCode(opts, callback) {
+    function codeCreate(opts, callback) {
         callback({
             type: opts.type,
             value: opts.value,
             code: 'kocherga:' + opts.type + ':' + opts.value
         });
     }
-    function destroyCode(code, callback) {
-        callback();
-    }
+
     function request(url, callback) {
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
