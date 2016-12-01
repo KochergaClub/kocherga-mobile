@@ -3,6 +3,7 @@ import QtQuick.Window 2.2
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
 import QtMultimedia 5.7
+import QtQuick.Window 2.2
 import '../components'
 
 View {
@@ -15,7 +16,11 @@ View {
         id: scanner
         source: camera
         fillMode: VideoOutput.PreserveAspectCrop
-        autoOrientation: true
+        //autoOrientation: true
+        orientation: -(
+            camera.orientation +
+            Screen.angleBetween(Screen.orientation, Screen.primaryOrientation)
+        ) % 360
 
         anchors.horizontalCenter: parent.horizontalCenter
         width: parent.width
