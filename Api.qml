@@ -6,6 +6,16 @@ QtObject {
     property real coins: 101.1
     property int people: -1
 
+    function codeInfo(code, callback) {
+        var parts = code.split(':');
+        if (parts.length !== 3) return;
+        if (parts[0] !== 'kocherga') return;
+        if (parts[1] === 'coins') {
+            parts[2] = parseFloat(parts[2], 10);
+        }
+        callback({ type: parts[1], value: parts[2] });
+    }
+
     function requestCode(opts, callback) {
         callback({
             type: opts.type,

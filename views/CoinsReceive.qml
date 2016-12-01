@@ -11,26 +11,24 @@ View {
     property bool found: false
     property real value: 1
 
-    Camera {
-        id: camera
-        cameraState: view.active ? Camera.ActiveState : Camera.UnloadedState;
-    }
-    VideoOutput {
-        id: video
-        source: camera
+    QrScanner {
+        id: scanner
         anchors.horizontalCenter: parent.horizontalCenter
         width: parent.width
         height: parent.height - pt(560)
-        fillMode: VideoOutput.PreserveAspectCrop
-        autoOrientation: true
+        cameraState: view.active ? Camera.ActiveState : Camera.UnloadedState;
+        onTagFound: {
+            api.codeInfo(tag, function(info) {
+                if (info.type === 'coins') {
+                    view.value = info.value;
+                    view.found = true;
+                }
+            })
+        }
     }
-    MouseArea {
-        // mockup
-        anchors.fill: video
-        onClicked: view.found = true
-    }
+
     Text {
-        anchors.top: video.bottom
+        anchors.top: scanner.bottom
         anchors.topMargin: pt(100)
         anchors.horizontalCenter: parent.horizontalCenter
         text: view.value + ' юдк.'

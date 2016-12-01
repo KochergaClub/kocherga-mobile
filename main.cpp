@@ -2,6 +2,8 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
+#include "deps/QZXingFilter.h"
+
 int main(int argc, char *argv[])
 {
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -12,6 +14,9 @@ int main(int argc, char *argv[])
     app.setApplicationName("Kocherga");
 
     QQmlApplicationEngine engine;
+
+    qmlRegisterType<QZXingFilter>("QZXing", 2, 3, "QZXingFilter");
+
     QQmlContext *context = engine.rootContext();
     #if defined(Q_OS_ANDROID)
         context->setContextProperty(QLatin1String("AppPlatform"), "android");

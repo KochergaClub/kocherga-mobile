@@ -2,9 +2,14 @@ TEMPLATE = app
 
 QT += qml quick widgets svg websockets network quickcontrols2 multimedia
 
-SOURCES += main.cpp
+HEADERS += deps/QZXingFilter.h
+
+SOURCES += main.cpp \
+           deps/QZXingFilter.cpp
 
 RESOURCES += qml.qrc
+
+include(deps/QZXing/QZXing.pri)
 
 ios {
     QMAKE_INFO_PLIST = ios/Info.plist
