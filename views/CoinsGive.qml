@@ -100,4 +100,8 @@ View {
         anchors.bottomMargin: pt(100)
         visible: result.visible
     }
+    Connections {
+        target: window
+        onBackButtonPressed: api.codeDestroy(qrcode.value)
+    }
 }

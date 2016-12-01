@@ -12,9 +12,14 @@ ApplicationWindow {
     visible: true
     flags: Qt.Window | Qt.MaximizeUsingFullscreenGeometryHint
 
+    signal backButtonPressed(var event)
+
     FocusScope {
         focus: true
         Keys.onReleased: {
+            if (event.key === Qt.Key_Back) {
+                window.backButtonPressed(event);
+            }
         }
         Loader {
             active: true

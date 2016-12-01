@@ -26,6 +26,16 @@ Item {
         drawer.close()
     }
 
+    Connections {
+        target: window
+        onBackButtonPressed: {
+            if (stack.depth > 1) {
+                stack.pop();
+                event.accepted = true;
+            }
+        }
+    }
+
     Api {
         id: api
     }
