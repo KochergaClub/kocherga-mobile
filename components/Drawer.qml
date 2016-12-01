@@ -3,7 +3,7 @@ import QtQuick.Controls 2.0
 
 Drawer {
     width: pt(900)
-    height: parent.height + header.height// + footer.height
+    height: window.height
     property color color: '#fff'
     property bool enabled: true
     dragMargin: enabled ? Qt.styleHints.startDragDistance : 0

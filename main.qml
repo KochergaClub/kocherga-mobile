@@ -4,7 +4,7 @@ import './components'
 import './views'
 
 ApplicationWindow {
-    id: main
+    id: window
 
     width: 300
     height: 500
@@ -12,65 +12,16 @@ ApplicationWindow {
     visible: true
     flags: Qt.Window | Qt.MaximizeUsingFullscreenGeometryHint
 
-    property string platform: typeof AppPlatform !== 'undefined' ? AppPlatform : ''
-    property int baseWidth: 1080
-    property int baseHeight: 1920
-    property real px: Math.min(width, height * baseWidth / baseHeight) / baseWidth
-
-    function pt(size, min) {
-        return Math.max(Math.round(px * size), min || 0);
-    }
-
-    function switchTo(arg) {
-        if (stack.currentItem !== arg) {
-            stack.pop(null);
-            stack.replace(arg);
+    FocusScope {
+        focus: true
+        Keys.onReleased: {
         }
-        drawer.close()
-    }
-
-    Api {
-        id: api
-    }
-
-    header: Header {}
-
-    Drawer {
-        id: drawer
-        LeftMenu {
-            anchors.fill: parent
+        Loader {
+            active: true
+            id: loader
+            width: window.width
+            height: window.height
+            source: './MainView.qml'
         }
-    }
-
-    StackView {
-        id: stack
-        anchors.fill: parent
-        initialItem: coins
-    }
-
-    Coins {
-        id: coins
-        visible: false
-    }
-    Help {
-        id: help
-        visible: false
-    }
-    About {
-        id: about
-        visible: false
-    }
-    Now {
-        id: now
-        visible: false
-    }
-
-    Component {
-        id: coinsGive
-        CoinsGive {}
-    }
-    Component {
-        id: coinsReceive
-        CoinsReceive {}
     }
 }

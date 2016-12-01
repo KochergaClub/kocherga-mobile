@@ -30,5 +30,6 @@
         <file>LeftMenu.qml</file>
         <file>LeftMenuItem.qml</file>
         <file>main.qml</file>
+        <file>MainView.qml</file>
     </qresource>
 </RCC>

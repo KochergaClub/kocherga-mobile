@@ -6,7 +6,7 @@ Item {
         spacing: 0
         anchors.fill: parent
         Rectangle {
-            height: header.topPadding
+            height: main.anchors.topMargin
             width: parent.width
             color: '#000'
         }

@@ -2,13 +2,11 @@ import QtQuick 2.7
 import './components'
 
 Item {
-    property int topPadding: (main.platform === 'ios' || main.platform === 'osx') ? 20 : 0
-    height: topPadding + pt(160)
-    width: main.width
+    height: pt(160)
+    width: parent.width
     Item {
-        height: parent.height - topPadding
+        height: parent.height
         width: 2 * parent.width
-        y: topPadding
         x: stack.depth > 1 ? -main.width : 0
         Behavior on x {
             XAnimator {
