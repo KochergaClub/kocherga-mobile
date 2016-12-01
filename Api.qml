@@ -1,4 +1,5 @@
 import QtQml 2.2
+import QZXing 2.3
 
 QtObject {
     property string username: 'Имярек Батькович'
@@ -56,4 +57,15 @@ QtObject {
     }
 
     Component.onCompleted: refreshPeople()
+
+    /* QR stuff */
+
+    signal decodingStarted()
+    signal decodingFinished(bool succeeded)
+    signal tagFound(string tag)
+    property var zxingFilter: QZXingFilter {
+        onDecodingStarted: api.decodingStarted()
+        onDecodingFinished: api.decodingFinished(succeeded)
+        onTagFound: api.tagFound(tag)
+    }
 }

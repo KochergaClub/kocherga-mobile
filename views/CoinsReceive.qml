@@ -11,12 +11,27 @@ View {
     property bool found: false
     property real value: 1
 
-    QrScanner {
+    VideoOutput {
         id: scanner
+        source: camera
+        fillMode: VideoOutput.PreserveAspectCrop
+        autoOrientation: true
+
         anchors.horizontalCenter: parent.horizontalCenter
         width: parent.width
         height: parent.height - pt(560)
-        cameraState: view.active ? Camera.ActiveState : Camera.UnloadedState;
+
+        Camera {
+            id: camera
+            cameraState: view.active ? Camera.ActiveState : Camera.UnloadedState
+        }
+
+        filters: [ api.zxingFilter ]
+    }
+
+    Connections {
+        target: api
+
         onTagFound: {
             api.codeInfo(tag, function(info) {
                 if (info.type === 'coins') {
