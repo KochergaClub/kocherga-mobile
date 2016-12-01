@@ -11,11 +11,17 @@ RESOURCES += qml.qrc
 
 include(deps/QZXing/QZXing.pri)
 
+ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
+
 ios {
     QMAKE_INFO_PLIST = ios/Info.plist
     ios_assets.files = $$files($$PWD/ios/*.xcassets)
     ios_launch.files = $$PWD/ios/Launch.xib
     QMAKE_BUNDLE_DATA += ios_assets ios_launch
+}
+
+android {
+    QT += androidextras
 }
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
