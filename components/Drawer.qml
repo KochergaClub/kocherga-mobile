@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.0
 
 Drawer {
-    width: 0.8 * parent.width
+    width: pt(900)
     height: parent.height + header.height// + footer.height
     property color color: '#fff'
     property bool enabled: true
