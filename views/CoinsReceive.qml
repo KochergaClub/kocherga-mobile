@@ -24,6 +24,10 @@ View {
         Camera {
             id: camera
             cameraState: view.active ? Camera.ActiveState : Camera.UnloadedState
+            focus {
+                focusMode: Camera.FocusContinuous
+                focusPointMode: Camera.FocusPointCenter
+            }
         }
 
         filters: [ api.zxingFilter ]
