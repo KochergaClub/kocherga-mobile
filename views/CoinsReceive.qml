@@ -68,7 +68,7 @@ View {
         Button {
             id: abortButton
             text: 'Отмена'
-            onClicked: view.found = false
+            onClicked: stack.pop()
             width: view.width * 0.4
             anchors.left: parent.left
             height: parent.height
