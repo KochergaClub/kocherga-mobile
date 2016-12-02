@@ -31,5 +31,6 @@
         <file>LeftMenuItem.qml</file>
         <file>main.qml</file>
         <file>MainView.qml</file>
+        <file>components/Tumbler.qml</file>
     </qresource>
 </RCC>

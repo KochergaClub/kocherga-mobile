@@ -5,7 +5,83 @@ import '../components'
 
 View {
     id: view
+
+    Component.onCompleted: {
+        if (api.coins >= 1) {
+            spinbox.value = 10;
+        } else if (api.coins >= 0.1) {
+            spinbox.value = 1;
+        } else {
+            stack.pop();
+        }
+    }
+
     Item {
+        id: tumblers
+        visible: !result.visible
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: actions.top
+        anchors.bottomMargin: pt(100)
+        Rectangle {
+            color: '#fff'
+            anchors.fill: parent
+        }
+
+        property bool inhibited: false
+        function set(value) {
+            tumblers.inhibited = true;
+            tumbler0.currentIndex = Math.floor(value);
+            tumbler1.currentIndex = Math.floor(value * 10) % 10;
+            tumblers.inhibited = false;
+        }
+
+        Row {
+            anchors.centerIn: parent
+            height: parent.height
+            Tumbler {
+                id: tumbler0
+                property int max: Math.floor(api.coins + 1e-10)
+                model: Array.apply(null, new Array(max + 1)).map(function(x,i) { return i })
+                width: pt(400)
+                height: parent.height
+                visibleItemCount: 5
+                onCurrentIndexChanged: {
+                    if (tumblers.inhibited) return;
+                    spinbox.value = currentIndex * 10 + tumbler1.currentIndex
+                }
+            }
+            Text {
+                text: ','
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: pt(100)
+                color: '#000'
+            }
+            Tumbler {
+                id: tumbler1
+                property int max: Math.min(9, Math.floor((api.coins - tumbler0.currentIndex + 1e-10) * 10))
+                model: Array.apply(null, new Array(max + 1)).map(function(x,i) { return i })
+                onMaxChanged: {
+                    var index = currentIndex;
+                    model = Array.apply(null, new Array(max + 1)).map(function(x,i) { return i })
+                    if (model.length > index) {
+                        currentIndex = index;
+                    }
+                }
+                width: pt(400)
+                height: parent.height
+                visibleItemCount: 5
+                onCurrentIndexChanged: {
+                    if (tumblers.inhibited) return;
+                    spinbox.value = tumbler0.currentIndex * 10 + currentIndex
+                }
+            }
+        }
+    }
+
+    Item {
+        id: actions
         visible: !result.visible
         width: view.width * 0.9
         anchors.horizontalCenter: parent.horizontalCenter
@@ -15,11 +91,12 @@ View {
         SpinBox {
             id: spinbox
             from: 0
-            value: 10
+            value: 0
             to: api.coins * 10
             stepSize: 1
 
             property real realValue: value / 10
+            onRealValueChanged: tumblers.set(realValue)
 
             validator: DoubleValidator {
                 bottom: Math.min(spinbox.from, spinbox.to)
