@@ -50,14 +50,17 @@ Item {
 
     Header {
         id: header
+        transform: Translate {
+            x: drawer.position * drawer.width
+        }
     }
 
     StackView {
         id: stack
         anchors.top: header.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
         anchors.bottom: parent.bottom
+        x: drawer.position * drawer.width
+        width: parent.width
         initialItem: coins
     }
 
