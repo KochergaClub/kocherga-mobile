@@ -2,6 +2,7 @@ import QtQml 2.2
 import QZXing 2.3
 
 QtObject {
+    property url slackurl: 'https://lesswrongru.slack.com/messages/kocherga/'
     property string username: 'Имярек Батькович'
     property bool loggedIn: false
     property real coins: 101.1

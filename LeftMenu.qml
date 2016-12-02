@@ -26,6 +26,11 @@ Item {
             text: 'Справка'
             onClicked: switchTo(help)
         }
+        LeftMenuItem {
+            text: 'Slack-чат'
+            onClicked: Qt.openUrlExternally(api.slackurl)
+            visible: !!api.slackurl
+        }
     }
     MouseArea {
         visible: api.loggedIn
