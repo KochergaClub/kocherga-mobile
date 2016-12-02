@@ -7,7 +7,6 @@ Button {
     radius: pt(20)
     leftPadding: height
     property string network: 'facebook'
-    text: network
     highlighted: true
     pressedColorText: '#fff'
     pressedColor: Qt.darker(color, 1.1)
@@ -19,6 +18,10 @@ Button {
             (network === 'google-plus') ? '#dd4b39' :
             (network === 'dropbox') ? '#1087dd' :
             '#888888'
+    text:   (network === 'vkontakte') ? 'ВКонтакте' :
+            (network === 'google-plus') ? 'Google+' :
+            (network[0].toUpperCase() + network.slice(1))
+
     Image {
         antialiasing: true
         width: parent.height / 2
