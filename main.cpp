@@ -1,6 +1,7 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QtWebView>
 
 #include "deps/QZXingFilter.h"
 
@@ -12,6 +13,8 @@ int main(int argc, char *argv[])
     app.setOrganizationName("KochergaClub");
     app.setOrganizationDomain("http://kocherga-club.ru/");
     app.setApplicationName("Kocherga");
+
+    QtWebView::initialize();
 
     QQmlApplicationEngine engine;
 

@@ -27,6 +27,10 @@ Item {
             onClicked: switchTo(help)
         }
         LeftMenuItem {
+            text: 'Мероприятия'
+            onClicked: switchTo(timepad)
+        }
+        LeftMenuItem {
             text: 'Slack-чат'
             onClicked: Qt.openUrlExternally(api.slackurl)
             visible: !!api.slackurl

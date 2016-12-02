@@ -1,5 +1,6 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
+import QtWebView 1.1
 import './components'
 import './views'
 
@@ -84,5 +85,11 @@ Item {
     Component {
         id: coinsReceive
         CoinsReceive {}
+    }
+
+    WebView {
+        id: timepad
+        url: api.timepad
+        visible: false
     }
 }
