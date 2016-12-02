@@ -128,6 +128,7 @@ View {
             }
             width: view.width * 0.4
             height: parent.height
+            visible: spinbox.realValue > 0 && spinbox.realValue <= api.coins
         }
     }
 
