@@ -23,6 +23,7 @@ View {
             width: view.width * 0.4
             anchors.left: parent.left
             height: parent.height
+            visible: api.coins >= 0.1
         }
         Button {
             id: receiveButton
