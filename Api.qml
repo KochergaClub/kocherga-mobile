@@ -3,7 +3,7 @@ import QZXing 2.3
 
 QtObject {
     property url slackurl: 'https://lesswrongru.slack.com/messages/kocherga/'
-    property url timepad: 'http://oserv.org/private/kocherga/timepad.html'
+    property url timepad: 'http://now.kocherga-club.ru/static/timepad-widget.html'
     property string username: 'Имярек Батькович'
     property bool loggedIn: false
     property real coins: 101.1
