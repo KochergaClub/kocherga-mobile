@@ -2,14 +2,14 @@ TEMPLATE = app
 
 QT += qml quick widgets svg websockets network quickcontrols2 multimedia webview
 
-HEADERS += deps/QZXingFilter.h
+HEADERS += deps/qzxing/examples/QZXingLive/QZXingFilter.h
 
 SOURCES += main.cpp \
-           deps/QZXingFilter.cpp
+           deps/qzxing/examples/QZXingLive/QZXingFilter.cpp
 
 RESOURCES += qml.qrc
 
-include(deps/QZXing/QZXing.pri)
+include(deps/qzxing/src/QZXing.pri)
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 

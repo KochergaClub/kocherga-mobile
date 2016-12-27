@@ -9,7 +9,7 @@
         <file>components/Text.qml</file>
         <file>components/TextField.qml</file>
         <file>components/View.qml</file>
-        <file>deps/qrcode.js</file>
+        <file>deps/qrcode-generator/js/qrcode.js</file>
         <file>images/networks/dropbox.svg</file>
         <file>images/networks/facebook.svg</file>
         <file>images/networks/foursquare.svg</file>

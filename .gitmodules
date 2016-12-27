@@ -1,0 +1,6 @@
+[submodule "deps/qzxing"]
+	path = deps/qzxing
+	url = https://github.com/ftylitak/qzxing
+[submodule "deps/qrcode-generator"]
+	path = deps/qrcode-generator
+	url = https://github.com/kazuhikoarase/qrcode-generator/

@@ -3,7 +3,7 @@
 #include <QQmlContext>
 #include <QtWebView>
 
-#include "deps/QZXingFilter.h"
+#include "deps/qzxing/examples/QZXingLive/QZXingFilter.h"
 
 int main(int argc, char *argv[])
 {

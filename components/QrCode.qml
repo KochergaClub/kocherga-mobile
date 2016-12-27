@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import '../deps/qrcode.js' as Lib
+import '../deps/qrcode-generator/js/qrcode.js' as Lib
 
 Image {
     property string value: ''
