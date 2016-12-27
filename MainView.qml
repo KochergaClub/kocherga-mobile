@@ -8,9 +8,8 @@ Item {
     id: main
 
     anchors.fill: parent
-    anchors.topMargin: (window.platform === 'ios' || window.platform === 'osx') ? 20 : 0
+    anchors.topMargin: (Qt.platform.os === 'ios' || Qt.platform.os === 'osx') ? 20 : 0
 
-    property string platform: typeof AppPlatform !== 'undefined' ? AppPlatform : ''
     property int baseWidth: 1080
     property int baseHeight: 1920
     property real px: Math.min(width, height * baseWidth / baseHeight) / baseWidth
