@@ -9,6 +9,9 @@ SOURCES += main.cpp \
 
 RESOURCES += qml.qrc
 
+OTHER_FILES += \
+    android/AndroidManifest.xml
+
 include(deps/qzxing/src/QZXing.pri)
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
