@@ -27,6 +27,14 @@ android {
     QT += androidextras
 }
 
+# See http://doc.qt.io/qt-5/opensslsupport.html for instructions how to build
+# those libs and info why we need to
+contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
+    ANDROID_EXTRA_LIBS = \
+        $$PWD/../../openssl/libcrypto.so \
+        $$PWD/../../openssl/libssl.so
+}
+
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
 
