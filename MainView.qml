@@ -67,14 +67,6 @@ Item {
         id: coins
         visible: false
     }
-    Help {
-        id: help
-        visible: false
-    }
-    About {
-        id: about
-        visible: false
-    }
     Now {
         id: now
         visible: false
@@ -89,9 +81,16 @@ Item {
         CoinsReceive {}
     }
 
-    WebView {
-        id: timepad
-        url: api.timepad
-        visible: false
+    Repeater {
+        model: api.pages
+        delegate: WebView {
+            // TODO: remove external urls?
+            // If we need those, we probably don't want spawning empty
+            // WebViews for those
+            url: model.external ? '' : model.url
+            visible: false
+            Component.onCompleted: api.webviews[index] = this
+            // TODO: reload on network errors
+        }
     }
 }

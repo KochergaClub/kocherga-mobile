@@ -18,11 +18,9 @@
         <file>images/networks/twitter.svg</file>
         <file>images/networks/vkontakte.svg</file>
         <file>images/networks/wibana.svg</file>
-        <file>views/About.qml</file>
         <file>views/Coins.qml</file>
         <file>views/CoinsGive.qml</file>
         <file>views/CoinsReceive.qml</file>
-        <file>views/Help.qml</file>
         <file>views/Login.qml</file>
         <file>views/Now.qml</file>
         <file>Api.qml</file>

@@ -18,22 +18,19 @@ Item {
             text: 'Прямо сейчас'
             onClicked: switchTo(now)
         }
-        LeftMenuItem {
-            text: 'О Кочерге'
-            onClicked: switchTo(about)
-        }
-        LeftMenuItem {
-            text: 'Справка'
-            onClicked: switchTo(help)
-        }
-        LeftMenuItem {
-            text: 'Мероприятия'
-            onClicked: switchTo(timepad)
-        }
-        LeftMenuItem {
-            text: 'Slack-чат'
-            onClicked: Qt.openUrlExternally(api.slackurl)
-            visible: !!api.slackurl
+        Repeater {
+            model: api.pages
+            delegate: LeftMenuItem {
+                text: model.name
+                onClicked: {
+                    if (model.external) {
+                        Qt.openUrlExternally(model.url)
+                        drawer.close();
+                    } else {
+                        switchTo(api.webviews[index])
+                    }
+                }
+            }
         }
     }
     MouseArea {
