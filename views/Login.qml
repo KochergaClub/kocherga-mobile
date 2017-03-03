@@ -5,7 +5,7 @@ View {
     anchors.fill: parent
     Column {
         anchors.centerIn: parent
-        spacing: 20
+        spacing: pt(40)
         Repeater {
             model: ['facebook', 'twitter', 'vkontakte', 'instagram']
             delegate: SocialButton {
