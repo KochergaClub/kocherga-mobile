@@ -110,6 +110,8 @@ QtObject {
     property var zxingFilter: QZXingFilter {
         onDecodingStarted: api.decodingStarted()
         onDecodingFinished: api.decodingFinished(succeeded)
-        onTagFound: api.tagFound(tag)
+        decoder.enabledDecoders: QZXing.DecoderFormat_QR_CODE
+        decoder.onTagFound: api.tagFound(tag)
+        decoder.tryHarder: false
     }
 }

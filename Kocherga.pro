@@ -2,10 +2,9 @@ TEMPLATE = app
 
 QT += qml quick widgets svg websockets network quickcontrols2 multimedia webview
 
-HEADERS += deps/qzxing/examples/QZXingLive/QZXingFilter.h
+CONFIG += c++11 qzxing_multimedia
 
-SOURCES += main.cpp \
-           deps/qzxing/examples/QZXingLive/QZXingFilter.cpp
+SOURCES += main.cpp
 
 RESOURCES += qml.qrc
 

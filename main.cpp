@@ -1,8 +1,7 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QtWebView>
-
-#include "deps/qzxing/examples/QZXingLive/QZXingFilter.h"
+#include <QZXing.h>
 
 int main(int argc, char *argv[])
 {
@@ -14,9 +13,9 @@ int main(int argc, char *argv[])
     app.setApplicationName("Kocherga");
 
     QtWebView::initialize();
+    QZXing::registerQMLTypes();
 
     QQmlApplicationEngine engine;
-    qmlRegisterType<QZXingFilter>("QZXing", 2, 3, "QZXingFilter");
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     return app.exec();
