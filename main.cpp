@@ -1,4 +1,4 @@
-#include <QApplication>
+#include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QtWebView>
 #include <QZXing.h>
@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 {
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
-    QApplication app(argc, argv);
+    QGuiApplication app(argc, argv);
     app.setOrganizationName("KochergaClub");
     app.setOrganizationDomain("http://kocherga-club.ru/");
     app.setApplicationName("Kocherga");

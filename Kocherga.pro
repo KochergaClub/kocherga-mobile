@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += qml quick widgets svg websockets network quickcontrols2 multimedia webview
+QT += qml quick svg websockets network quickcontrols2 multimedia webview
 
 CONFIG += c++11 qzxing_multimedia
 
