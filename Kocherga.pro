@@ -17,9 +17,13 @@ ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 
 ios {
     QMAKE_INFO_PLIST = ios/Info.plist
-    ios_assets.files = $$files($$PWD/ios/*.xcassets)
+    QMAKE_ASSET_CATALOGS = ios/Images.xcassets
+    QMAKE_ASSET_CATALOGS_APP_ICON = AppIcon
+    QMAKE_ASSET_CATALOGS_LAUNCH_IMAGE = LaunchImage
+    QMAKE_IOS_DEPLOYMENT_TARGET = 8.0
+    QMAKE_IOS_TARGETED_DEVICE_FAMILY = 1,2
     ios_launch.files = $$PWD/ios/Launch.xib
-    QMAKE_BUNDLE_DATA += ios_assets ios_launch
+    QMAKE_BUNDLE_DATA += ios_launch
 }
 
 android {
