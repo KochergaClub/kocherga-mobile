@@ -11,10 +11,6 @@ Item {
             color: '#000'
         }
         LeftMenuItem {
-            text: api.loggedIn ? api.username : 'Войти'
-            onClicked: switchTo(coins)
-        }
-        LeftMenuItem {
             text: 'Прямо сейчас'
             onClicked: switchTo(now)
         }

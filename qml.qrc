@@ -4,24 +4,10 @@
         <file>components/Button.qml</file>
         <file>components/Drawer.qml</file>
         <file>components/MenuButton.qml</file>
-        <file>components/QrCode.qml</file>
         <file>components/SocialButton.qml</file>
         <file>components/Text.qml</file>
         <file>components/TextField.qml</file>
         <file>components/View.qml</file>
-        <file>deps/qrcode-generator/js/qrcode.js</file>
-        <file>images/networks/dropbox.svg</file>
-        <file>images/networks/facebook.svg</file>
-        <file>images/networks/foursquare.svg</file>
-        <file>images/networks/google-plus.svg</file>
-        <file>images/networks/instagram.svg</file>
-        <file>images/networks/twitter.svg</file>
-        <file>images/networks/vkontakte.svg</file>
-        <file>images/networks/wibana.svg</file>
-        <file>views/Coins.qml</file>
-        <file>views/CoinsGive.qml</file>
-        <file>views/CoinsReceive.qml</file>
-        <file>views/Login.qml</file>
         <file>views/Now.qml</file>
         <file>Api.qml</file>
         <file>Header.qml</file>

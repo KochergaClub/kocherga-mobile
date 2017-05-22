@@ -1,6 +1,5 @@
 import QtQml 2.2
 import QtQuick 2.0
-import QZXing 2.3
 
 QtObject {
     property url statLink: 'http://now.kocherga-club.ru/stat.json'
@@ -100,18 +99,5 @@ QtObject {
     Component.onCompleted: {
         refreshPeople();
         refreshPages();
-    }
-
-    /* QR stuff */
-
-    signal decodingStarted()
-    signal decodingFinished(bool succeeded)
-    signal tagFound(string tag)
-    property var zxingFilter: QZXingFilter {
-        onDecodingStarted: api.decodingStarted()
-        onDecodingFinished: api.decodingFinished(succeeded)
-        decoder.enabledDecoders: QZXing.DecoderFormat_QR_CODE
-        decoder.onTagFound: api.tagFound(tag)
-        decoder.tryHarder: false
     }
 }

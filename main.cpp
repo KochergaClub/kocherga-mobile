@@ -1,7 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QtWebView>
-#include <QZXing.h>
 
 int main(int argc, char *argv[])
 {
@@ -13,7 +12,6 @@ int main(int argc, char *argv[])
     app.setApplicationName("Kocherga");
 
     QtWebView::initialize();
-    QZXing::registerQMLTypes();
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

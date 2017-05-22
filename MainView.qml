@@ -63,23 +63,11 @@ Item {
         initialItem: coins
     }
 
-    Coins {
-        id: coins
-        visible: false
-    }
     Now {
         id: now
         visible: false
     }
-
-    Component {
-        id: coinsGive
-        CoinsGive {}
-    }
-    Component {
-        id: coinsReceive
-        CoinsReceive {}
-    }
+    Component.onCompleted: switchTo(now)
 
     Repeater {
         model: api.pages

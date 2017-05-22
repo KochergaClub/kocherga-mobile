@@ -1,8 +1,8 @@
 TEMPLATE = app
 
-QT += qml quick svg websockets network quickcontrols2 multimedia webview
+QT += qml quick svg websockets network quickcontrols2 webview
 
-CONFIG += c++11 qzxing_multimedia
+CONFIG += c++11
 
 SOURCES += main.cpp
 
@@ -10,8 +10,6 @@ RESOURCES += qml.qrc
 
 OTHER_FILES += \
     android/AndroidManifest.xml
-
-include(deps/qzxing/src/QZXing.pri)
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 
