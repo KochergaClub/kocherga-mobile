@@ -28,7 +28,7 @@ View {
             width: view.width
         }
         Text {
-            text: num
+            text: num < 0 ? '?' : num
             font.pixelSize: pt(400)
             horizontalAlignment: Text.AlignHCenter
             width: view.width
