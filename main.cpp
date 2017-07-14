@@ -1,6 +1,5 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include <QtWebView>
 #include <QZXing.h>
 
 int main(int argc, char *argv[])
@@ -12,7 +11,6 @@ int main(int argc, char *argv[])
     app.setOrganizationDomain("http://kocherga-club.ru/");
     app.setApplicationName("Kocherga");
 
-    QtWebView::initialize();
     QZXing::registerQMLTypes();
 
     QQmlApplicationEngine engine;

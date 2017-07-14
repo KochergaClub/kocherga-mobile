@@ -1,6 +1,5 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
-import QtWebView 1.1
 import './components'
 import './views'
 
@@ -79,18 +78,5 @@ Item {
     Component {
         id: coinsReceive
         CoinsReceive {}
-    }
-
-    Repeater {
-        model: api.pages
-        delegate: WebView {
-            // TODO: remove external urls?
-            // If we need those, we probably don't want spawning empty
-            // WebViews for those
-            url: model.external ? '' : model.url
-            visible: false
-            Component.onCompleted: api.webviews[index] = this
-            // TODO: reload on network errors
-        }
     }
 }

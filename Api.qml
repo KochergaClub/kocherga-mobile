@@ -4,14 +4,10 @@ import QZXing 2.3
 
 QtObject {
     property url statLink: 'http://now.kocherga-club.ru/stat.json'
-    property url pagesLink: 'http://now.kocherga-club.ru/static/mobile-pages.json'
     property string username: 'Имярек Батькович'
     property bool loggedIn: false
     property real coins: 101.1
     property int people: -1
-    property var webviews: []
-
-    property ListModel pages: ListModel {}
 
     function coinsAdd(value) {
         coins = Math.round((coins + value) * 1e9) / 1e9;
@@ -80,26 +76,8 @@ QtObject {
         })
     }
 
-    function refreshPages() {
-        request(pagesLink, function(data) {
-            if (!data) return; // TODO: try to refresh on timeout
-            webviews.length = 0;
-            pages.clear();
-            for (var i in data) {
-                var r = data[i];
-                if (r.hasOwnProperty('enabled') && !r.enabled) continue;
-                pages.append({
-                    name: r.name,
-                    url: r.url,
-                    external: r.external || false
-                });
-            }
-        })
-    }
-
     Component.onCompleted: {
         refreshPeople();
-        refreshPages();
     }
 
     /* QR stuff */

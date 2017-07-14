@@ -18,20 +18,6 @@ Item {
             text: 'Прямо сейчас'
             onClicked: switchTo(now)
         }
-        Repeater {
-            model: api.pages
-            delegate: LeftMenuItem {
-                text: model.name
-                onClicked: {
-                    if (model.external) {
-                        Qt.openUrlExternally(model.url)
-                        drawer.close();
-                    } else {
-                        switchTo(api.webviews[index])
-                    }
-                }
-            }
-        }
     }
     MouseArea {
         visible: api.loggedIn
