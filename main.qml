@@ -6,8 +6,8 @@ import './views'
 ApplicationWindow {
     id: window
 
-    width: 300
-    height: 500
+    width: 1080 * 0.3
+    height: 1920 * 0.3
     color: '#000'
     visible: true
     flags: Qt.Window | Qt.MaximizeUsingFullscreenGeometryHint
