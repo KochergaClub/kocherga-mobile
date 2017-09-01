@@ -8,6 +8,7 @@ QtObject {
     property bool loggedIn: false
     property real coins: 101.1
     property int people: -1
+    property int timepadId: 53244
 
     function coinsAdd(value) {
         coins = Math.round((coins + value) * 1e9) / 1e9;

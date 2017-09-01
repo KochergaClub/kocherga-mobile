@@ -30,5 +30,6 @@
         <file>main.qml</file>
         <file>MainView.qml</file>
         <file>components/Tumbler.qml</file>
+        <file>views/Timepad.qml</file>
     </qresource>
 </RCC>

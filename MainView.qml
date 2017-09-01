@@ -70,6 +70,11 @@ Item {
         id: now
         visible: false
     }
+    Timepad {
+        id: timepad
+        orgId: api.timepadId
+        visible: false
+    }
 
     Component {
         id: coinsGive

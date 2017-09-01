@@ -18,6 +18,10 @@ Item {
             text: 'Прямо сейчас'
             onClicked: switchTo(now)
         }
+        LeftMenuItem {
+            text: 'Расписание'
+            onClicked: switchTo(timepad)
+        }
     }
     MouseArea {
         visible: api.loggedIn
